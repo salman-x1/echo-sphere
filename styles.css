@@ -1,0 +1,149 @@
+.mention-story-user {
+  height: 50px;
+  width: 50px;
+  /* border-radius: 50%; */
+  border-radius: 50px;
+  border: 1px solid grey;
+}
+.mention-story-user img {
+  height: 100%;
+  width: 100%;
+
+  border-radius: 50%;
+  object-fit: contain;
+}
+.notification-user {
+  /* margin: 10px; */
+  height: 25%;
+  width: 25%;
+  /* border-radius: 50%; */
+  border-radius: 50px;
+  border: 1px solid grey;
+}
+.notification-user img {
+  height: 100%;
+  width: 100%;
+
+  border-radius: 50%;
+  object-fit: contain;
+  aspect-ratio: 1/1;
+}
+
+.main-ctn {
+  /* width: 1400px; */
+
+  padding: 10px 6%;
+}
+.overall-ctn {
+  border-radius: 20px;
+}
+.stories-ctn {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  margin: auto;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid rgb(90, 90, 90);
+  box-shadow: 5px 5px 5px rgb(45, 45, 45);
+  background-color: whitesmoke;
+  
+}
+
+.story-user-ctn {
+  height: 70px;
+  width: 70px;
+  border-radius: 50px;
+  border: 1px solid grey;
+  overflow: hidden;
+  
+}
+.story-user-ctn img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  
+}
+body {
+  color: white;
+}
+body div {
+  /* border: 1px solid red; */
+}
+.see-all-btn button {
+  /* outline: none; */
+  border: none;
+  /* border: none; */
+}
+.see-all-btn:focus {
+  outline: none;
+}
+
+.notification-section-3 {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.search-bar-container {
+  /* padding: 10px; */
+  border-radius: 20px;
+}
+.search-bar-container input {
+  /* padding: 2px; */
+  border-top-right-radius: 20px;
+  border-end-end-radius: 20px;
+  padding-left: 10px;
+  border: none;
+}
+.search-messages-input:focus {
+  border: none;
+  outline: none;
+}
+.fa-magnifying-glass {
+  cursor: pointer;
+}
+
+.posts-ctn {
+
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  /* padding: 100px; */
+  /* background-color: brown; */
+}
+.username-picture-ctn {
+  height: 45px;
+  width: 45px;
+  border-radius: 50px;
+  overflow: hidden;
+}
+.username-picture-ctn img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.posts-icons i {
+  font-size: 24px;
+}
+.user-post-ctn {
+  height: 480px;
+  width: 540px;
+  margin: 10px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  object-fit: cover;
+}
+.user-post-ctn img {
+  height: 100%;
+  width: 100%;
+}
+.posts-icons-reactions {
+  display: flex;
+  column-gap: 15px;
+}
+.posts-icons-reactions i {
+  cursor: pointer;
+}
+.posts-icons-reactions i:hover {
+  font-weight: bold;
+}
