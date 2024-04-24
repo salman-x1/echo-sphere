@@ -27,11 +27,31 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="main-ctn container-fluid mt-5 bg-light">
+    <nav class="navbar container-fluid justify-content-around  bg-dark d-flex align-items-center p-2">
+      <div>
+        <h4>PiqoSocial</h4>
+      </div>
+      <div class="search-bar-container rounded-pill d-flex">
+            <i class="fa-solid fa-magnifying-glass my-auto p-3"></i>
+            <input
+              class="search-messages-input w-100"
+              type="search"
+              name=""
+              id=""
+              placeholder="Search Users, Posts"
+            />
+          </div>
+      <div class="navbar-icons">
+          <i class="fa-regular fa-message fw-lg"></i>
+          <i class="fa-regular fa-bell "></i>
+          <i class="fa-regular fa-user "></i>
+      </div>
+    </nav>
+    <div class="main-ctn container mt-3">
       <!-- GRID CONTAINER OF NOTIFICATION, POSTS and MESSAGES -->
-      <div class="overall-ctn row justify-content-around bg-dark">
+      <div class="overall-ctn row px-2">
         <!-- NOTIFICATION CONTAINER -->
-        <div class="col-3 border">
+        <div class="notification-ctn col-3 mt-2">
           <!-- NOTIFICATION SECTION 1 -->
           <div class="d-flex justify-content-between mt-3">
             <div class="my-auto">
@@ -164,6 +184,9 @@
               <img class="" src="Images/person3.jpg" alt="Salman 1" />
             </div>
             <div class="story-user-ctn">
+              <img class="" src="Images/person3.jpg" alt="Salman 1" />
+            </div>
+            <div class="story-user-ctn">
               <img class="" src="Images/person2.jpg" alt="Salman 2" />
             </div>
             <div class="story-user-ctn">
@@ -176,8 +199,10 @@
               <img class="" src="Images/person3.jpg" alt="Salman 5" />
             </div>
           </div>
-          <div class="posts-ctn mt-5">
-            <div class="username-post-ctn d-flex justify-content-between mt-3 mx-3">
+
+          <!-- POST CONTAINER -->
+          <div id="post-ctn" class="posts-ctn mt-5">
+            <!-- <div class="username-post-ctn d-flex justify-content-between mt-3 mx-3">
               <div class="username-info-ctn d-flex p-1">
                 <div class="username-picture-ctn">
                   <img
@@ -214,11 +239,13 @@
               <strong>salmannaz1r </strong>
               <p>BMW</p>
             </div>
-          </div>
+          </div> -->
         </div>
         <!-- POSTS CONTAINER -->
 
-        <div class="col-3 border">
+      
+    </div>
+    <div class="message-ctn col-3 mt-2"> 
           <!-- Message Container -->
           <div class="d-flex justify-content-between mt-3">
             <div class="my-auto">
@@ -240,8 +267,8 @@
             />
           </div>
           <!-- Message Usernames & Active Status -->
-          <div class="message-users-ctn my-3">
-            <div class="message-users d-flex mt-2">
+          <div id="message-users-ctn" class="message-users-ctn my-3">
+            <!-- <div class="message-users d-flex mt-2">
               <div class="message-users-profile">
                 <img src="Images/person1.jpg  " alt="">
               </div>
@@ -255,7 +282,7 @@
                 <img src="Images/person1.jpg  " alt="">
               </div>
               <div class="message-username">
-                <h5>salahudin_ayyubi</h5>
+                <h5>salahudin_02</h5>
                 <p class="active-min-ago">Active 5m ago</p>
               </div>
             </div>
@@ -264,7 +291,7 @@
                 <img src="Images/person1.jpg  " alt="">
               </div>
               <div class="message-username">
-                <h5>saadchachu786</h5>
+                <h5>saad_rafi</h5>
                 <p class="active-min-ago">Active 5m ago</p>
               </div>
             </div>
@@ -291,7 +318,7 @@
                 <img src="Images/person1.jpg  " alt="">
               </div>
               <div class="message-username">
-                <h5>hassanguldon</h5>
+                <h5>hassangul</h5>
                 <p class="active-min-ago">Active 5m ago</p>
               </div>
             </div>
@@ -300,14 +327,13 @@
                 <img src="Images/person1.jpg  " alt="">
               </div>
               <div class="message-username">
-                <h5>hassanguldon</h5>
+                <h5>hassangulhere01</h5>
                 <p class="active-min-ago">Active 5m ago</p>
               </div>
-            </div>
+            </div> -->
         </div>
       </div>
-    </div>
-
+      <script src="index.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <!-- <script
