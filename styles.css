@@ -1,6 +1,7 @@
 /* .navbar {
   
 } */
+
 .navbar .search-bar-container {
   width: 400px;
 }
@@ -41,10 +42,12 @@
   object-fit: contain;
   aspect-ratio: 1/1;
 }
-/* 
+
 .main-ctn {
-  
-} */
+  position: relative;
+  top: 60px;
+  /* overflow-y: scroll; */
+}
 .overall-ctn {
   border-radius: 20px;
 }
@@ -132,9 +135,9 @@
   background-color: whitesmoke;
 }
 .user-post-ctn {
-  /* height: 480px;
-  width: 540px; */
-  margin: 10px auto;
+  height: 440px;
+  /* width: 500px; */
+  margin:auto;
   border-radius: 10px;
   overflow: hidden;
   object-fit: cover;
@@ -161,21 +164,19 @@
   border: 1px solid rgb(84, 84, 84);
   background-color: whitesmoke;
   height: fit-content;
-  
 }
+
 .message-ctn {
   border-radius: 20px;
   border: 1px solid rgb(84, 84, 84);
   background-color: whitesmoke;
   height: fit-content;
-  
 }
-
 
 /* Message Users */
 .message-users-ctn {
   border-radius: 20px;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
   height: 500px;
   overflow-y: scroll;
 }
@@ -192,10 +193,10 @@
   border: 1px solid grey;
 }
 .message-users-profile {
-  /* height: 50px; */
-  /* width: 50px; */
+  height: 50px;
+  width: 50px;
   border-radius: 50px;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 .message-users-profile img {
   height: 100%;
@@ -235,17 +236,24 @@ body {
   background-color: #f0f0f0;
 }
 .navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .notification-ctn {
-  background-color: #31363F;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
+  background-color: #31363f;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 .message-ctn {
-  background-color: #31363F;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
+  background-color: #31363f;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 .main-user-post-ctn {
-  background-color: #31363F;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
+  background-color: #31363f;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 .stories-ctn {
-  background-color: #31363F;
-box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
+  background-color: #31363f;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
