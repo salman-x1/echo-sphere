@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
               // Assuming you want to store attributes of the first user
               
               const user = users.find((user)=> user.username === username )
-                // const firstUser = users[0];
                 localStorage.setItem("userId", user.id);
                 localStorage.setItem("userFirstName", user.firstName);
                 localStorage.setItem("userLastName", user.lastName);
@@ -47,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Store more user data attributes as needed
               
 
-              // Redirect to index.html or any other page
+              // Redirect to index.html
               window.location.href = "home.html";
             })
             .catch((error) => {

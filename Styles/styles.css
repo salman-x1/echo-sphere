@@ -100,7 +100,7 @@ input {
 .story-user-ctn img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  object-fit: scale-down;
 }
 
 .see-all-btn button {

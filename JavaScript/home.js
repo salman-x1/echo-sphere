@@ -157,6 +157,11 @@ fetch(apiURLpost)
       .catch((error) => console.log(error));
   });
 
+
+  // Search Users 
+  
+
+
 //Function for Adding Comments in Posts
 
 function addcommentfun(postId) {
@@ -227,56 +232,6 @@ function addcommentfun(postId) {
 }
 
 
-
-
-// function addcommentfun(postId) {
-//   let commentInput = document.getElementById(`inputComment-${postId}`).value;
-
-//   fetch("https://dummyjson.com/comments/add", {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//       body: commentInput,
-//       postId: postId,
-//       userId: 5,
-//     }),
-//   })
-//     .then((res) => res.json())
-//     .then((commentData) => {
-//       let commentShow = document.getElementById(`showComments-${postId}`);
-
-//       let commentDiv = document.createElement("div");
-//       commentDiv.classList.add("comment-item");
-
-//       let commentText = document.createElement("span");
-//       commentText.textContent = commentData.body;
-//       commentDiv.appendChild(commentText);
-
-//       let editButton = document.createElement("button");
-//       let editIcon = document.createElement("i");
-//       editIcon.classList.add("fa-regular", "fa-pen-to-square");
-//       editButton.appendChild(editIcon);
-//       editButton.onclick = function () {
-//         editComment(commentData.id, commentText);
-//       };
-//       commentDiv.appendChild(editButton);
-
-//       let deleteButton = document.createElement("button");
-//       let deleteIcon = document.createElement("i");
-//       deleteIcon.classList.add("fa-solid", "fa-trash");
-//       deleteButton.appendChild(deleteIcon);
-//       deleteButton.onclick = function () {
-//         deleteComment(commentData.id, commentDiv);
-//       };
-//       commentDiv.appendChild(deleteButton);
-
-//       commentShow.appendChild(commentDiv);
-//     })
-//     .catch((error) => {
-//       console.error("Error:", error);
-//     });
-// }
-
 // Edit Comments in Post
 
 function editComment(commentId, commentTextElement) {
@@ -316,3 +271,26 @@ function deleteComment(commentId, commentElement) {
       console.error("Error:", error);
     });
 }
+window.addEventListener("scroll", ()=> {
+  const {scrollTop, scollHeight, clientHeight} = document.documentElement;
+  if (scrollTop + clientHeight>= scollHeight -5 ) {
+    
+  }
+})
+
+function routingLogin() {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    window.location.href = "index.html";
+  }
+}
+routingLogin();
+
+
+function logout() {
+  localStorage.removeItem("token");
+  window.location.href="index.html"
+}
+
+
+

@@ -66,7 +66,7 @@
           <p> <span id="user_username"></span></p>
           <a class="dropdown-item" href="#">Profile</a>
           <a class="dropdown-item" href="#">Settings</a>
-          <a class="dropdown-item" href="#" id="logoutButton">Logout</a>
+          <a class="dropdown-item" href="#" id="logoutButton" onclick="logout()">Logout</a>
         </div>
         
       </div>
@@ -100,7 +100,7 @@
             <h6 id="user_firstName"></h6>
             <div class="d-flex justify-content-center m-1 ">
               <div class="mention-story-user rounded-circle my-auto">
-                <img src="Images/person3.jpg" alt="Your Image" class="" />
+                <img src="Images/person1.jpg" alt="Your Image" class="" />
               </div>
               <div class="px-3 ">
                 <h5>Mentions</h5>
@@ -113,7 +113,7 @@
             <h5>New</h5>
             <div class="d-flex justify-content-center">
               <div class="notification-user rounded-circle my-auto">
-                <img src="Images/person3.jpg" alt="Your Image" class="" />
+                <img src="Images/person1.jpg" alt="Your Image" class="" />
               </div>
               <div class="px-2 py-1 small">
                 <p class="my-auto">
@@ -127,7 +127,7 @@
             <!--  -->
             <div class="d-flex justify-content-center">
               <div class="notification-user rounded-circle my-auto">
-                <img src="Images/person3.jpg" alt="Your Image" class="" />
+                <img src="Images/person1.jpg" alt="Your Image" class="" />
               </div>
               <div class="px-2 py-1 small">
                 <p class="my-auto">
@@ -141,7 +141,7 @@
             <!--  -->
             <div class="d-flex justify-content-center">
               <div class="notification-user rounded-circle my-auto">
-                <img src="Images/person3.jpg" alt="Your Image" class="" />
+                <img src="Images/person1.jpg" alt="Your Image" class="" />
               </div>
               <div class="px-2 py-1 small">
                 <p class="my-auto">
@@ -155,7 +155,7 @@
             <!--  -->
             <div class="d-flex justify-content-center">
               <div class="notification-user rounded-circle my-auto">
-                <img src="Images/person3.jpg" alt="Your Image" class="" />
+                <img src="Images/person1.jpg" alt="Your Image" class="" />
               </div>
               <div class="px-2 py-1 small">
                 <p class="my-auto">
@@ -169,7 +169,7 @@
             <!--  -->
             <div class="d-flex justify-content-center">
               <div class="notification-user rounded-circle my-auto">
-                <img src="Images/person3.jpg" alt="Your Image" class="" />
+                <img src="Images/person1.jpg" alt="Your Image" class="" />
               </div>
               <div class="px-2 py-1 small">
                 <p class="my-auto">
@@ -183,7 +183,7 @@
             <!--  -->
             <div class="d-flex justify-content-center">
               <div class="notification-user rounded-circle my-auto">
-                <img src="Images/person3.jpg" alt="Your Image" class="" />
+                <img src="Images/person1.jpg" alt="Your Image" class="" />
               </div>
               <div class="px-2 py-1 small">
                 <p class="my-auto">
@@ -197,7 +197,7 @@
             <!--  -->
             <div class="d-flex justify-content-center">
               <div class="notification-user rounded-circle my-auto">
-                <img src="Images/person3.jpg" alt="Your Image" class="" />
+                <img src="Images/person1.jpg" alt="Your Image" class="" />
               </div>
               <div class="px-2 py-1 small">
                 <p class="my-auto">
@@ -215,7 +215,7 @@
         <div class="center-ctn col-12 col-lg-6 mt-2">
           <div class="stories-ctn row m-auto">
             <div class="story-user-ctn">
-              <img class="" src="Images/person3.jpg" alt="Salman 1" />
+              <img class="" src="Images/person1.jpg" alt="Salman 1" />
             </div>
             <div class="story-user-ctn">
               <img class="" src="Images/person3.jpg" alt="Salman 1" />
@@ -256,13 +256,7 @@
           <!-- Search Messages Container -->
           <div class="search-bar-container rounded-pill d-flex mt-4">
             <i class="fa-solid fa-magnifying-glass my-auto p-3"></i>
-            <input
-              class="search-messages-input w-100"
-              type="search"
-              name=""
-              id=""
-              placeholder="Search Messages"
-            />
+           <input class="search-messages-input w-100" type="search" name="" id="searchInput" placeholder="Search Messages">
           </div>
           <!-- Message Usernames & Active Status -->
           <div id="message-users-ctn" class="message-users-ctn my-3">
@@ -280,7 +274,7 @@
         }
       </script>
     
-    <script src="search.js"></script>
+    <script src="/JavaScript/search.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
