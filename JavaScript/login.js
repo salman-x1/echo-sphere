@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
               
 
               // Redirect to index.html or any other page
-              window.location.href = "index.html";
+              window.location.href = "home.html";
             })
             .catch((error) => {
               console.error("Error fetching user data:", error);

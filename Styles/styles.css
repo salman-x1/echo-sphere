@@ -36,20 +36,7 @@ input {
   border-radius: 50px;
   border: 1px solid grey;
 }
-@media (max-width: 768px) {
-  .menu-ctn {
-    display: block;
-  }
-  .navbar-icons {
-    position: fixed;
-    left: -100%;
-    top: 80px;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-  }
-}
+
 .mention-story-user {
   height: 50px;
   width: 50px;
@@ -303,9 +290,6 @@ body {
   background-color: #f8f9fa;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-.comments-show-ctn {
-  /* background-color: rgb(110, 109, 109); */
-}
 .commentInput-ctn {
   border-radius: 20px;
   border-color: grey;
@@ -333,6 +317,21 @@ body {
 }
 .commentInput:focus {
   outline: none;
+}
+
+@media (max-width: 768px) {
+  .menu-ctn {
+    display: block;
+  }
+  .navbar-icons {
+    position: fixed;
+    left: -100%;
+    top: 80px;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+  }
 }
 
 /* Media Queries */

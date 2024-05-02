@@ -1,14 +1,13 @@
-/* CSS file for Login(login.html) and Signup(index.html)  */
+/* CSS file for Login */
 
 body {
   background: #f8f8f8;
 }
 
 
-/* Login and Signup Container */
+/* Login Container */
 
-.login-ctn,
-.signup-ctn {
+.login-ctn {
   border: 1px solid rgb(236, 236, 236);
   padding: 20px;
   border-radius: 20px;
@@ -18,28 +17,6 @@ body {
   background-color: #ffffff8c;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
-}
-
-.head-signup-ctn {
-  margin-left: 28px;
-  width: 280px;
-  height: 100px;
-}
-
-.head-signup-ctn h2 {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 40px;
-  font-weight: 400;
-  color: #414141;
-  font-size: 34px;
-  margin: auto;
-}
-.head-signup-ctn p {
-  font-size: 16px;
-  color: #a8a8a8;
-  font-weight: normal;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
 }
 
 .head-login-ctn {
@@ -65,45 +42,10 @@ body {
 }
 
 .username-ctn,
-.email-ctn,
 .password-ctn {
   padding: 10px;
   width: 350px;
   margin: auto;
-}
-
-/* From Login to Signup and Signup to Login Page */
-
-.route-page-ctn {
-  width: 300px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.route-page-ctn p {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
-}
-.route-page-ctn a {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
-  color: rgb(11, 32, 150);
-}
-
-/* Sign Up Page (Input) */
-
-.signup-ctn input {
-  border-radius: 10px;
-  border: 1px solid grey;
-  width: 340px;
-  padding-left: 12px;
-  height: 44px;
-}
-.signup-ctn input:hover {
-  border-color: rgb(0, 0, 0);
 }
 
 /* Login Page (Input) */
@@ -126,7 +68,7 @@ body {
   width: 300px;
 }
 .result-ctn {
-  width: 110px;
+  width: 140px;
   margin: auto;
 }
 .result-ctn p {
