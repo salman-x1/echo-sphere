@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
 
-    <title>Hello, world!</title>
+    
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -24,53 +24,87 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <title>PiqoSocial</title>
     <link rel="stylesheet" href="styles.css" />
+ 
   </head>
   <body>
-    <nav class="navbar container-fluid justify-content-around  bg-dark d-flex align-items-center p-2">
-      <div>
-        <h4>PiqoSocial</h4>
+    <nav class="navbar container-fluid justify-content-around d-flex align-items-center p-2">
+      <div class="logo-ctn">
+        <h4 class="my-auto fw-bold"><strong>PiqoSocial</strong></h4>
       </div>
       <div class="search-bar-container rounded-pill d-flex">
-            <i class="fa-solid fa-magnifying-glass my-auto p-3"></i>
+        <form action="" id="searchForm" class="d-flex">
+
+
+            <i class="fa-solid fa-magnifying-glass my-auto p-3 " type="submit" onclick="searchPost()"></i>
             <input
               class="search-messages-input w-100"
               type="search"
               name=""
-              id=""
+              id="searchInput"
               placeholder="Search Users, Posts"
             />
+            </form>
           </div>
-      <div class="navbar-icons">
-          <i class="fa-regular fa-message fw-lg"></i>
-          <i class="fa-regular fa-bell "></i>
-          <i class="fa-regular fa-user "></i>
+      <div class="navbar-icons ">
+        
+          <i class="fa-regular fa-message fw-lg my-auto"></i>
+          
+          <i class="fa-regular fa-bell my-auto"></i>
+          <div class="login-user-image-ctn">
+            <img class="login-user-image" src="" alt="" id="loginUserImage">
+          </div>
+          
+          
+          <div class="dropdown rounded-circle">
+            
+          <i class="dropdown fa-regular fa-user btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           
+            </i>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <p> <span id="user_username"></span></p>
+          <a class="dropdown-item" href="#">Profile</a>
+          <a class="dropdown-item" href="#">Settings</a>
+          <a class="dropdown-item" href="#" id="logoutButton">Logout</a>
+        </div>
+        
       </div>
+
+      </div>
+      <!-- <div class="menu-ctn">
+          <i class="fa-solid fa-bars"></i>
+        </div> -->
+      
     </nav>
     <div class="main-ctn container mt-3">
       <!-- GRID CONTAINER OF NOTIFICATION, POSTS and MESSAGES -->
       <div class="overall-ctn row px-2">
         <!-- NOTIFICATION CONTAINER -->
-        <div class="notification-ctn col-3 mt-2">
+        <div class="notification-ctn d-none d-md-none d-lg-block col-3 mt-2 ">
           <!-- NOTIFICATION SECTION 1 -->
           <div class="d-flex justify-content-between mt-3">
             <div class="my-auto">
-              <h3>Activity</h3>
+              <h4>Activity</h4>
             </div>
             <div class="see-all-btn my-auto">
               <button class="p-2">See All</button>
             </div>
           </div>
+         <!-- <h2>User Data</h2> -->
+    <div>
+  
+    </div>
           <!-- NOTIFICATION SECTION 2 (Stories About You) -->
           <div class="mt-2">
-            <h5>Stories About You</h5>
-            <div class="d-flex justify-content-center m-1">
+            <h6 id="user_firstName"></h6>
+            <div class="d-flex justify-content-center m-1 ">
               <div class="mention-story-user rounded-circle my-auto">
                 <img src="Images/person3.jpg" alt="Your Image" class="" />
               </div>
-              <div class="px-3">
-                <h4>Mentions</h4>
-                <p>2 Stories Mentioned you</p>
+              <div class="px-3 ">
+                <h5>Mentions</h5>
+                <p class="small">2 Stories Mentioned you</p>
               </div>
             </div>
           </div>
@@ -167,7 +201,7 @@
               </div>
               <div class="px-2 py-1 small">
                 <p class="my-auto">
-                  <strong>salmannaz1r</strong> started following you
+                  <strong id="user_username">salmannaz1r</strong> started following you
                 </p>
               </div>
               <div class="my-auto fa-xl">
@@ -178,7 +212,7 @@
           <!--  -->
         </div>
         <!-- Story Container -->
-        <div class="col-6 mt-2">
+        <div class="center-ctn col-12 col-lg-6 mt-2">
           <div class="stories-ctn row m-auto">
             <div class="story-user-ctn">
               <img class="" src="Images/person3.jpg" alt="Salman 1" />
@@ -201,8 +235,8 @@
           </div>
 
           <!-- POST CONTAINER -->
-          <div id="post-ctn" class="posts-ctn mt-5">
-            <!-- <div class="username-post-ctn d-flex justify-content-between mt-3 mx-3">
+          <div id="post-ctn" class="posts-ctn">
+             <!-- <div class="username-post-ctn d-flex justify-content-between mt-3 mx-3 bg-dark">
               <div class="username-info-ctn d-flex p-1">
                 <div class="username-picture-ctn">
                   <img
@@ -219,7 +253,7 @@
               </div>
             </div>
 
-            <div class="user-post-ctn">
+            <div class="user-post-ctn bg-dark">
               <img src="Images/person2.jpg" alt="" />
             </div>
             <div class="posts-icons d-flex justify-content-between p-2 mx-3 ">
@@ -238,18 +272,20 @@
             <div class="user-desc d-flex mx-4 ">
               <strong>salmannaz1r </strong>
               <p>BMW</p>
-            </div>
-          </div> -->
+            </div> -->
+            
+          <!-- </div>  -->
+          <!-- <div class="commment-ctn"></div> -->
         </div>
         <!-- POSTS CONTAINER -->
 
       
     </div>
-    <div class="message-ctn col-3 mt-2"> 
+    <div class="message-ctn d-sm-none d-md-none d-lg-block col-3 mt-2"> 
           <!-- Message Container -->
           <div class="d-flex justify-content-between mt-3">
             <div class="my-auto">
-              <h3>Messages</h3>
+              <h4>Messages</h4>
             </div>
             <div class="new-message-ctn my-auto fa-xl">
               <i class="fa-solid fa-pen-to-square"></i>
@@ -334,9 +370,28 @@
         </div>
       </div>
       <script src="index.js"></script>
+      <script>
+        window.onload= function showUser() {
+          let loginUserImage = document.getElementById('loginUserImage');
+          let userImage =localStorage.getItem("userImage");
+          loginUserImage.src= userImage;
+         
+          
+        }
+      </script>
+      
+      <script>
+        // Retrieve user data from localStorage  
+
+        let username =localStorage.getItem("username");
+        let gotusername= document.getElementById("")
+      
+    </script>
+    
+    <script src="search.js"></script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <!-- <script
+    <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"
@@ -350,6 +405,6 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
-    ></script> -->
+    ></script>
   </body>
 </html>

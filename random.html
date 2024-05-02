@@ -30,10 +30,49 @@
   </head>
   <body style="color: black">
     <!-- Message Usernames & Active Status -->
-    <div class="message-users-ctn my-3">
-     
-    </div>
+    <div class="message-users-ctn my-3"></div>
 
-    <script src="user.js"></script>
+    <script>
+      // const numbers = [1, 2, 3, 4, 5];
+
+      // numbers.forEach((number, index, array) => {
+      //   console.log(number, array);
+      // });
+
+      const apiURLpost = "https://dummyjson.com/posts";
+      fetch(apiURLpost)
+        .then((res) => res.json())
+        .then((postData) => {
+          // Users API
+          const apiURLuser = "https://dummyjson.com/users";
+          fetch(apiURLuser)
+            .then((res) => res.json())
+            .then((userData) => {
+              const users = userData.users;
+              users.forEach((userName, userIndex) => {
+                
+                console.log(userName.firstName, );
+              });
+            });
+          // console.log(data);
+          const posts = postData.posts;
+          if (Array.isArray(posts)) {
+            console.log("Array");
+            posts.forEach((posttitle, postTitleIndex) => {
+              console.log(posttitle.title," ", postTitleIndex);
+              // const apiURLuser = "https://dummyjson.com/users";
+              // fetch(apiURLuser)
+              //   .then((res) => res.json())
+              //   .then((userData) => {
+              //     const users = userData.users;
+              //     console.log(users.firstName, " ", users.lastName);
+              //   });
+            });
+          } else {
+            console.log("Not Array");
+          }
+        })
+        .catch((error) => console.log("Error", error));
+    </script>
   </body>
 </html>

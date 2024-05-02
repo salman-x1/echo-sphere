@@ -1,9 +1,23 @@
-/* .navbar {
-  
-} */
-
-.navbar .search-bar-container {
-  width: 400px;
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+.menu-ctn {
+  display: none;
+}
+.navbar .search-bar-container,
+input {
+  width: 350px;
+  background-color: #dee2e6;
+  font-size: 14px;
+}
+.message-ctn .search-bar-container {
+  background-color: #dee2e6;
+  font-size: 14px;
+}
+.fa-magnifying-glass {
+  color: black;
+  margin-left: 10px;
 }
 .navbar-icons {
   display: flex;
@@ -15,6 +29,26 @@
 }
 .navbar i:hover {
   font-weight: bold;
+}
+.login-user-image {
+  height: 35px;
+  width: 35px;
+  border-radius: 50px;
+  border: 1px solid grey;
+}
+@media (max-width: 768px) {
+  .menu-ctn {
+    display: block;
+  }
+  .navbar-icons {
+    position: fixed;
+    left: -100%;
+    top: 80px;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+  }
 }
 .mention-story-user {
   height: 50px;
@@ -58,7 +92,7 @@
   justify-content: space-between;
   padding: 10px;
   border-radius: 20px;
-  border: 1px solid rgb(90, 90, 90);
+  /* border: 1px solid rgb(90, 90, 90); */
   box-shadow: 5px 5px 5px rgb(45, 45, 45);
   background-color: whitesmoke;
   /* height: 100px; */
@@ -122,22 +156,20 @@
   width: 3rem;
   border-radius: 50%;
 }
-/* .username-picture-ctn img {
- 
-} */
+
 .posts-icons i {
   font-size: 24px;
 }
 .main-user-post-ctn {
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 20px;
   row-gap: 20px;
   background-color: whitesmoke;
 }
 .user-post-ctn {
-  height: 440px;
+  height: 420px;
   /* width: 500px; */
-  margin:auto;
+  margin: auto;
   border-radius: 10px;
   overflow: hidden;
   object-fit: cover;
@@ -156,29 +188,42 @@
 .posts-icons-reactions i {
   cursor: pointer;
 }
+
 .posts-icons-reactions i:hover {
   font-weight: bold;
 }
+.fa-heart:hover {
+  font-weight: bold;
+  color: rgb(152, 19, 19);
+}
 .notification-ctn {
-  border-radius: 20px;
-  border: 1px solid rgb(84, 84, 84);
+  border-radius: 15px;
+  /* border: 1px solid rgb(84, 84, 84); */
   background-color: whitesmoke;
-  height: fit-content;
+  height: 520px;
+  overflow-y: scroll;
+  position: sticky;
+  top: 84px;
 }
 
 .message-ctn {
   border-radius: 20px;
-  border: 1px solid rgb(84, 84, 84);
+  /* border: 1px solid rgb(84, 84, 84); */
   background-color: whitesmoke;
-  height: fit-content;
+  height: 520px;
+  position: sticky;
+  top: 84px;
 }
 
 /* Message Users */
 .message-users-ctn {
   border-radius: 20px;
   /* border: 1px solid grey; */
-  height: 500px;
+  height: 370px;
   overflow-y: scroll;
+}
+.notification-ctn::-webkit-scrollbar {
+  display: none;
 }
 .message-users-ctn::-webkit-scrollbar {
   display: none;
@@ -232,28 +277,86 @@
 }
 
 body {
-  color: white;
+  color: #212529;
   background-color: #f0f0f0;
 }
 .navbar {
   position: fixed;
   top: 0;
   z-index: 1;
+  background-color: #f8f9fa;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .notification-ctn {
-  background-color: #31363f;
+  background-color: #f8f9fa;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .message-ctn {
-  background-color: #31363f;
+  background-color: #f8f9fa;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .main-user-post-ctn {
-  background-color: #31363f;
+  background-color: #f8f9fa;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .stories-ctn {
-  background-color: #31363f;
+  background-color: #f8f9fa;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.comments-show-ctn {
+  /* background-color: rgb(110, 109, 109); */
+}
+.commentInput-ctn {
+  border-radius: 20px;
+  border-color: grey;
+  /* border: 1px solid red; */
+  /* background-color: white; */
+  margin: 15px 15px;
+}
+.commentInput-ctn i {
+  font-size: 18px;
+  margin: auto 15px;
+  /* color: white; */
+  cursor: pointer;
+}
+
+.commentInput {
+  border-radius: 20px;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  padding-left: 20px;
+  font-size: 12px;
+}
+.commentInput:hover {
+  border: none;
+}
+.commentInput:focus {
+  outline: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  /* .main-ctn {
+    border: 1px solid red;
+  }
+  .main-ctn div {
+    border: 1px solid red;
+  }
+  .overall-ctn {
+    
+  }
+  */
+  /* .center-ctn {
+    border: 1px solid rgb(19, 52, 173);
+ 
+    background-color: aqua;
+    display: block;
+    
+    display: block;
+  }
+  .notification-ctn,
+  .message-ctn {
+    display: none;
+  } */
 }

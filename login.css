@@ -1,0 +1,186 @@
+/* CSS file for Login(login.html) and Signup(index.html)  */
+
+body {
+  background: #f8f8f8;
+}
+
+
+/* Login and Signup Container */
+
+.login-ctn,
+.signup-ctn {
+  border: 1px solid rgb(236, 236, 236);
+  padding: 20px;
+  border-radius: 20px;
+  width: 400px;
+  height: 500px;
+  margin: 40px auto;
+  background-color: #ffffff8c;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.head-signup-ctn {
+  margin-left: 28px;
+  width: 280px;
+  height: 100px;
+}
+
+.head-signup-ctn h2 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: #414141;
+  font-size: 34px;
+  margin: auto;
+}
+.head-signup-ctn p {
+  font-size: 16px;
+  color: #a8a8a8;
+  font-weight: normal;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.head-login-ctn {
+  margin-left: 28px;
+  width: 280px;
+  height: 100px;
+}
+
+.head-login-ctn h2 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  color: #414141;
+  font-size: 34px;
+  margin: auto;
+}
+.head-login-ctn p {
+  font-size: 16px;
+  color: #a8a8a8;
+  font-weight: normal;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.username-ctn,
+.email-ctn,
+.password-ctn {
+  padding: 10px;
+  width: 350px;
+  margin: auto;
+}
+
+/* From Login to Signup and Signup to Login Page */
+
+.route-page-ctn {
+  width: 300px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.route-page-ctn p {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+}
+.route-page-ctn a {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  color: rgb(11, 32, 150);
+}
+
+/* Sign Up Page (Input) */
+
+.signup-ctn input {
+  border-radius: 10px;
+  border: 1px solid grey;
+  width: 340px;
+  padding-left: 12px;
+  height: 44px;
+}
+.signup-ctn input:hover {
+  border-color: rgb(0, 0, 0);
+}
+
+/* Login Page (Input) */
+
+.login-ctn input {
+  border-radius: 10px;
+  border: 1px solid grey;
+  width: 340px;
+  padding-left: 12px;
+  height: 44px;
+}
+.login-ctn input:hover {
+  border-color: rgb(0, 0, 0);
+}
+
+/* Part of Login Page */
+
+.btn-ctn {
+  margin: auto;
+  width: 300px;
+}
+.result-ctn {
+  width: 110px;
+  margin: auto;
+}
+.result-ctn p {
+  color: red;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Button */
+.button-6 {
+  align-items: center;
+  background-color: #0b63d6fb;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(255, 255, 255, 0.986);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: 300px;
+}
+
+.button-6:hover,
+.button-6:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.button-6:hover {
+  transform: translateY(-1px);
+}
+
+.button-6:active {
+  background-color: #f0f0f1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
