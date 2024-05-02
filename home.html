@@ -236,8 +236,10 @@
 
           <!-- POST CONTAINER -->
           <div id="post-ctn" class="posts-ctn">
+            
              
         </div>
+        <button id="loadMoreBtn">Load More</button>
         
 
       
@@ -263,6 +265,10 @@
             
         </div>
       </div>
+      <div id="pagination-controls">
+  <button onclick="prevPage()">Previous</button>
+  <button onclick="nextPage()">Next</button>
+</div>
       <script src="./JavaScript/home.js"></script>
       <script>
         window.onload= function showUser() {
@@ -273,6 +279,44 @@
           
         }
       </script>
+      <script>
+       const postContainer = document.getElementById('postContainer');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    let currentPage = 1;
+    const postsPerPage = 10;
+    let totalPosts = 0;
+
+    // Function to show the next set of posts
+    function showNextPosts() {
+        const startIndex = (currentPage - 1) * postsPerPage;
+        const endIndex = Math.min(currentPage * postsPerPage, totalPosts);
+        const posts = postContainer.children;
+        for (let i = startIndex; i < endIndex; i++) {
+            posts[i].classList.remove('hidden');
+        }
+        currentPage++;
+        if (currentPage * postsPerPage >= totalPosts) {
+            loadMoreBtn.classList.add('hidden');
+        }
+    }
+
+    // Load more button click event
+    loadMoreBtn.addEventListener('click', showNextPosts);
+
+    // Simulated API call to determine the total number of posts
+    // Replace this with your actual API call
+    // For demonstration, simulating 30 posts
+    totalPosts = 30;
+
+    // Initially hide all posts beyond the first page
+    const allPosts = postContainer.children;
+    for (let i = postsPerPage; i < allPosts.length; i++) {
+        allPosts[i].classList.add('hidden');
+    }
+
+    // Show initial posts
+    showNextPosts();
+</script>
     
     <script src="/JavaScript/search.js"></script>
     <!-- Optional JavaScript -->

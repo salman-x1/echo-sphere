@@ -1,5 +1,9 @@
 ## Social Media Web App: A Basic Guide
 
+**Github Live Link**
+https://salman-x1.github.io/echo-sphere/
+
+
 **Introduction**
 
 This project builds a basic, functional social media website. Users can log in, view and interact with posts (limited by the frontend-only approach), and browse comments. The application leverages a Mock API (dummyjson.com) to simulate real-world data retrieval.

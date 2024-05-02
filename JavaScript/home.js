@@ -1,38 +1,67 @@
 // Showing Users in the Message Container
 const apiUrlUser = "https://dummyjson.com/users";
 
-fetch(apiUrlUser)
-  .then((res) => {
-    return res.json();
-  })
-  .then((data) => {
-    const users = data.users; // Access the array of users
-    console.log(users); // Log the data to inspect its structure
+class UserFetcher {
+  constructor(apiUrl) {
+    this.apiUrl = apiUrl;
+  }
+
+  fetchUsers() {
+    return fetch(this.apiUrl)
+      .then((res) => {
+        return res.json();
+      })
+      .catch((error) => console.log(error));
+  }
+}
+
+class UserRenderer {
+  constructor(containerId) {
+    this.containerId = containerId;
+  }
+
+  renderUsers(users) {
     if (Array.isArray(users)) {
       users.forEach((user) => {
-        // Create markup for each user
-        const markup = `<div class="message-users d-flex mt-2">
-          <div class="message-users-profile">
-            <img src="${user.image}" alt="">
-          </div>
-          <div class="message-username">
-            <h5>${user.firstName}</h5>
-            <p class="active-min-ago">${user.domain}</p>
-          </div>
-        </div>`;
+        const markup = this.createUserMarkup(user);
         document
-          .getElementById("message-users-ctn")
+          .getElementById(this.containerId)
           .insertAdjacentHTML("beforeend", markup);
       });
     } else {
       console.error("Users data is not an array:", users);
     }
-  })
-  .catch((error) => console.log(error));
+  }
+
+  createUserMarkup(user) {
+    return `<div class="message-users d-flex mt-2">
+      <div class="message-users-profile">
+        <img src="${user.image}" alt="">
+      </div>
+      <div class="message-username">
+        <h5>${user.firstName}</h5>
+        <p class="active-min-ago">${user.domain}</p>
+      </div>
+    </div>`;
+  }
+}
+
+// Usage
+// const apiUrlUser = "your_api_url_here";
+const userFetcher = new UserFetcher(apiUrlUser);
+const userRenderer = new UserRenderer("message-users-ctn");
+
+userFetcher.fetchUsers().then((data) => {
+  const users = data.users; // Access the array of users
+  console.log(users); // Log the data to inspect its structure
+  userRenderer.renderUsers(users);
+});
+
 
 // Showing Users and Comments in the Post Section
 const apiURLpost = "https://dummyjson.com/posts";
 const apiURLcomment = "https://dummyjson.com/comments";
+
 
 fetch(apiURLpost)
   .then((res) => {
@@ -158,99 +187,116 @@ fetch(apiURLpost)
   });
 
 
-  // Search Users 
-  
-
 
 //Function for Adding Comments in Posts
 
-function addcommentfun(postId) {
-  let commentInput = document.getElementById(`inputComment-${postId}`).value;
+class CommentManager {
+  constructor(userId) {
+    this.userId = userId;
+  }
 
-  fetch("https://dummyjson.com/comments/add", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      body: commentInput,
-      postId: postId,
-      userId: 5, // Assuming the user ID is hardcoded for now
-    }),
-  })
-    .then((res) => res.json())
-    .then((commentData) => {
-      let commentShow = document.getElementById(`showComments-${postId}`);
+  addComment(postId) {
+    let commentInput = document.getElementById(`inputComment-${postId}`).value;
 
-      // Retrieve the first name of the user who added the comment
-      const commentUsername = localStorage.getItem("userFirstName");
-
-      // Create a new element to display the user's first name
-      let usernameElement = document.createElement("span");
-      usernameElement.textContent = commentUsername;
-      usernameElement.style.fontWeight = "bold";
-
-      // Create a new div to hold the comment and the user's first name
-      let commentDiv = document.createElement("div");
-      commentDiv.style.display = "flex";
-      commentDiv.style.alignItems = "center";
-      commentDiv.style.marginBottom = "10px";
-
-      // Create a span to display the comment text
-      let commentText = document.createElement("span");
-      commentText.textContent = commentData.body;
-      commentText.style.flex = "1";
-      commentText.style.marginRight = "10px";
-
-      // Create buttons container to align buttons to the right side
-      let buttonsContainer = document.createElement("div");
-
-      // Create buttons for editing and deleting the comment
-      let editButton = document.createElement("button");
-      editButton.textContent = "Edit";
-      editButton.style.marginLeft = "5px";
-      editButton.onclick = function () {
-        editComment(commentData.id, commentText);
-      };
-
-      let deleteButton = document.createElement("button");
-      deleteButton.textContent = "Delete";
-      deleteButton.style.marginLeft = "5px";
-      deleteButton.onclick = function () {
-        deleteComment(commentData.id, commentDiv);
-      };
-
-      // Append elements to their respective containers
-      buttonsContainer.appendChild(editButton);
-      buttonsContainer.appendChild(deleteButton);
-      commentDiv.appendChild(usernameElement);
-      commentDiv.appendChild(commentText);
-      commentDiv.appendChild(buttonsContainer);
-      commentShow.appendChild(commentDiv);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-}
-
-
-// Edit Comments in Post
-
-function editComment(commentId, commentTextElement) {
-  let updatedComment = prompt(
-    "Edit your comment:",
-    commentTextElement.textContent
-  );
-  if (updatedComment !== null) {
-    fetch(`https://dummyjson.com/comments/${commentId}`, {
-      method: "PUT",
+    fetch("https://dummyjson.com/comments/add", {
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        body: updatedComment,
+        body: commentInput,
+        postId: postId,
+        userId: this.userId,
       }),
     })
       .then((res) => res.json())
-      .then((updatedData) => {
-        // Update the comment text in the UI
-        commentTextElement.textContent = updatedData.body;
+      .then((commentData) => {
+        this.displayComment(commentData, postId);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }
+
+  displayComment(commentData, postId) {
+    let commentShow = document.getElementById(`showComments-${postId}`);
+
+    // Retrieve the first name of the user who added the comment
+    const commentUsername = localStorage.getItem("userFirstName");
+
+    // Create a new element to display the user's first name
+    let usernameElement = document.createElement("span");
+    usernameElement.textContent = commentUsername;
+    usernameElement.style.fontWeight = "bold";
+
+    // Create a new div to hold the comment and the user's first name
+    let commentDiv = document.createElement("div");
+    commentDiv.style.display = "flex";
+    commentDiv.style.alignItems = "center";
+    commentDiv.style.marginBottom = "10px";
+
+    // Create a span to display the comment text
+    let commentText = document.createElement("span");
+    commentText.textContent = commentData.body;
+    commentText.style.flex = "1";
+    commentText.style.marginRight = "10px";
+
+    // Create buttons container to align buttons to the right side
+    let buttonsContainer = document.createElement("div");
+
+    // Create buttons for editing and deleting the comment
+    let editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+    editButton.style.marginLeft = "5px";
+    editButton.onclick = function () {
+      this.editComment(commentData.id, commentText);
+    }.bind(this);
+
+    let deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.style.marginLeft = "5px";
+    deleteButton.onclick = function () {
+      this.deleteComment(commentData.id, commentDiv);
+    }.bind(this);
+
+    // Append elements to their respective containers
+    buttonsContainer.appendChild(editButton);
+    buttonsContainer.appendChild(deleteButton);
+    commentDiv.appendChild(usernameElement);
+    commentDiv.appendChild(commentText);
+    commentDiv.appendChild(buttonsContainer);
+    commentShow.appendChild(commentDiv);
+  }
+
+  editComment(commentId, commentTextElement) {
+    let updatedComment = prompt(
+      "Edit your comment:",
+      commentTextElement.textContent
+    );
+    if (updatedComment !== null) {
+      fetch(`https://dummyjson.com/comments/${commentId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          body: updatedComment,
+        }),
+      })
+        .then((res) => res.json())
+        .then((updatedData) => {
+          // Update the comment text in the UI
+          commentTextElement.textContent = updatedData.body;
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    }
+  }
+
+  deleteComment(commentId, commentElement) {
+    fetch(`https://dummyjson.com/comments/${commentId}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        // Remove the comment element from the UI
+        commentElement.remove();
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -258,19 +304,15 @@ function editComment(commentId, commentTextElement) {
   }
 }
 
-// Delete Comment in Post
-function deleteComment(commentId, commentElement) {
-  fetch(`https://dummyjson.com/comments/${commentId}`, {
-    method: "DELETE",
-  })
-    .then(() => {
-      // Remove the comment element from the UI
-      commentElement.remove();
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+// Usage
+const userId = 5; // Assuming the user ID is hardcoded for now
+const commentManager = new CommentManager(userId);
+
+function addcommentfun(postId) {
+  commentManager.addComment(postId);
 }
+
+
 window.addEventListener("scroll", ()=> {
   const {scrollTop, scollHeight, clientHeight} = document.documentElement;
   if (scrollTop + clientHeight>= scollHeight -5 ) {
